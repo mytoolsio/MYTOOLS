@@ -1,2 +1,368 @@
 # MYTOOLS
 MY TOOLS WHERE YOU GET 9+ FREE TOOLS 🔥
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY TOOLS - 10 Offline Tools</title>
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+    --primary: #7e57c2;
+    --primary-dark: #5e35b1;
+    --secondary: #26c6da;
+    --dark-bg: #121212;
+    --dark-card: #1e1e1e;
+    --dark-text: #e0e0e0;
+    --dark-text-secondary: #9e9e9e;
+    --success: #66bb6a;
+    --warning: #ffca28;
+    --danger: #ef5350;
+}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: var(--dark-bg); color: var(--dark-text); line-height:1.6; padding:20px; min-height:100vh;}
+.container { max-width:1200px; margin:0 auto; }
+header { display:flex; flex-direction:column; align-items:center; text-align:center; padding:30px 20px; margin-bottom:30px; background:linear-gradient(135deg,var(--primary),var(--secondary)); border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.3);}
+.logo { font-size:2.8rem; margin-bottom:10px; color:white;}
+h1 { font-size:2.5rem; margin-bottom:10px; color:white;}
+.site-description { font-size:1.2rem; max-width:800px; color:rgba(255,255,255,0.9); margin:0 auto 20px;}
+.stats { display:flex; justify-content:center; gap:25px; margin-top:15px; flex-wrap:wrap;}
+.stat-box { background:rgba(0,0,0,0.2); padding:12px 20px; border-radius:10px; text-align:center; min-width:120px;}
+.stat-value { font-size:1.8rem; font-weight:bold; color:white;}
+.stat-label { font-size:0.9rem; color:rgba(255,255,255,0.8);}
+.search-container { display:flex; gap:15px; margin-bottom:30px; flex-wrap:wrap;}
+.search-box { flex:1; min-width:250px; padding:14px 20px; border-radius:50px; border:2px solid var(--primary); background-color:var(--dark-card); color:var(--dark-text); font-size:1rem;}
+.filter-container { display:flex; gap:10px; flex-wrap:wrap;}
+.filter-btn { padding:12px 20px; background-color:var(--dark-card); border:1px solid var(--primary); color:var(--dark-text); border-radius:50px; cursor:pointer; transition:all 0.3s ease;}
+.filter-btn:hover, .filter-btn.active { background-color:var(--primary); color:white;}
+.tools-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:25px; margin-bottom:40px;}
+.tool-card { background-color:var(--dark-card); border-radius:12px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.2); transition:transform 0.3s ease, box-shadow 0.3s ease; display:flex; flex-direction:column; height:100%; animation: fadeIn 0.5s ease forwards;}
+.tool-card:hover { transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.3);}
+.card-header { padding:20px; background:linear-gradient(to right,var(--primary),var(--secondary)); color:white;}
+.tool-category { font-size:0.85rem; opacity:0.9; margin-bottom:5px;}
+.tool-name { font-size:1.4rem; margin-bottom:10px;}
+.card-body { padding:20px; flex-grow:1; display:flex; flex-direction:column;}
+.tool-description { margin-bottom:20px; color:var(--dark-text-secondary); flex-grow:1;}
+.tool-status { display:inline-flex; align-items:center; gap:8px; padding:8px 15px; border-radius:20px; font-size:0.85rem; margin-top:10px; width:fit-content;}
+.status-working { background-color:rgba(102,187,106,0.2); color:var(--success);}
+.status-upcoming { background-color:rgba(255,202,40,0.2); color:var(--warning);}
+.tool-link { display:block; padding:12px 20px; background-color:var(--primary); color:white; text-align:center; text-decoration:none; border-radius:8px; font-weight:500; transition:background-color 0.3s; margin-top:15px; cursor:pointer;}
+.tool-link:hover { background-color:var(--primary-dark);}
+.tool-icon { font-size:2.5rem; margin-bottom:15px; color:var(--secondary);}
+footer { text-align:center; padding:30px 20px; border-top:1px solid #333; margin-top:40px; color:var(--dark-text-secondary);}
+.footer-content { max-width:600px; margin:0 auto;}
+.social-links { display:flex; justify-content:center; gap:20px; margin:20px 0;}
+.social-link { display:inline-flex; align-items:center; justify-content:center; width:45px; height:45px; border-radius:50%; background-color:var(--dark-card); color:var(--secondary); font-size:1.2rem; transition:all 0.3s ease;}
+.social-link:hover { background-color:var(--primary); color:white; transform:translateY(-5px);}
+@media (max-width:768px){h1{font-size:2rem;}.site-description{font-size:1rem;}.stats{gap:15px;}.stat-box{min-width:100px;padding:10px 15px;}.stat-value{font-size:1.5rem;}.tools-grid{grid-template-columns:1fr;}.search-container{flex-direction:column;}}
+@media (max-width:480px){header{padding:20px 15px;}h1{font-size:1.8rem;}.logo{font-size:2.2rem;}.stat-box{padding:8px 12px;min-width:80px;}.stat-value{font-size:1.3rem;}.stat-label{font-size:0.8rem;}}
+@keyframes fadeIn {from { opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);}}
+.tool-card:nth-child(2){animation-delay:0.1s;}
+.tool-card:nth-child(3){animation-delay:0.2s;}
+.tool-card:nth-child(4){animation-delay:0.3s;}
+.tool-card:nth-child(5){animation-delay:0.4s;}
+.tool-card:nth-child(6){animation-delay:0.5s;}
+.tool-card:nth-child(7){animation-delay:0.6s;}
+.tool-card:nth-child(8){animation-delay:0.7s;}
+.tool-card:nth-child(9){animation-delay:0.8s;}
+.tool-card:nth-child(10){animation-delay:0.9s;}
+::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar-track{background:#1e1e1e;}
+::-webkit-scrollbar-thumb{background:var(--primary); border-radius:5px;}
+::-webkit-scrollbar-thumb:hover{background:var(--primary-dark);}
+
+/* Modal Styles */
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;}
+.modal-content { background:var(--dark-card); padding:30px; border-radius:15px; max-width:500px; width:90%; position:relative; color:var(--dark-text);}
+.close-modal { position:absolute; top:15px; right:15px; font-size:1.5rem; cursor:pointer; color:white; }
+.modal h2 { margin-bottom:15px; text-align:center;}
+.modal input, .modal select, .modal button, .modal textarea { width:100%; padding:10px; margin:5px 0; border-radius:8px; border:none; font-size:1rem;}
+.modal button { background:var(--primary); color:white; cursor:pointer; margin-top:10px; transition:0.3s;}
+.modal button:hover { background:var(--primary-dark);}
+.modal-result { margin-top:10px; font-weight:bold; text-align:center;}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div class="logo"><i class="fas fa-tools"></i></div>
+<h1>MY TOOLS</h1>
+<p class="site-description">10 free offline tools — calculators, converters, generators, and utilities.</p>
+<div class="stats">
+<div class="stat-box"><div class="stat-value">10</div><div class="stat-label">Tools Available</div></div>
+<div class="stat-box"><div class="stat-value">100%</div><div class="stat-label">Offline</div></div>
+</div>
+</header>
+
+<div class="search-container">
+<input type="text" class="search-box" placeholder="Search for tools...">
+<div class="filter-container">
+<button class="filter-btn active">All</button>
+<button class="filter-btn">Health</button>
+<button class="filter-btn">Converters</button>
+<button class="filter-btn">Finance</button>
+<button class="filter-btn">Text</button>
+<button class="filter-btn">Security</button>
+</div>
+</div>
+
+<div class="tools-grid" id="toolsContainer"></div>
+
+<footer>
+<div class="footer-content">
+<div class="social-links">
+<a href="#" class="social-link"><i class="fab fa-github"></i></a>
+<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+<a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+<a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+</div>
+<p>©️ 2025 MY TOOLS. All rights reserved.</p>
+<p>Made with <i class="fas fa-heart" style="color: var(--danger);"></i> by MY TOOLS</p>
+</div>
+</footer>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="toolModal">
+<div class="modal-content" id="modalContent">
+<span class="close-modal" id="closeModal">&times;</span>
+<div id="modalBody"></div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+// Tool data
+const toolsData = [
+{id:"bmi", category:"Health", name:"BMI Calculator", description:"Calculate your Body Mass Index using height and weight.", status:"working"},
+{id:"age", category:"Health", name:"Age Calculator", description:"Find your exact age in years, months, and days.", status:"working"},
+{id:"temp", category:"Converters", name:"Temperature Converter", description:"Convert Celsius, Fahrenheit, Kelvin.", status:"working"},
+{id:"length", category:"Converters", name:"Length Converter", description:"Meters, inches, feet.", status:"working"},
+{id:"weight", category:"Converters", name:"Weight Converter", description:"Kg, lb, g.", status:"working"},
+{id:"loan", category:"Finance", name:"Loan Calculator", description:"Calculate EMI and interest.", status:"working"},
+{id:"tip", category:"Finance", name:"Tip & Bill Split", description:"Calculate tip amount and split bills.", status:"working"},
+{id:"word", category:"Text", name:"Word & Character Counter", description:"Count characters, words.", status:"working"},
+{id:"passwd", category:"Security", name:"Password Generator", description:"Generate strong random passwords.", status:"working"},
+{id:"qr", category:"Security", name:"QR Code Generator", description:"Generate QR codes from text.", status:"working"},
+];
+
+// Tool icons
+const toolIcons = {
+"bmi":"fas fa-weight",
+"age":"fas fa-birthday-cake",
+"temp":"fas fa-thermometer-half",
+"length":"fas fa-ruler",
+"weight":"fas fa-weight-hanging",
+"loan":"fas fa-money-bill-wave",
+"tip":"fas fa-hand-holding-usd",
+"word":"fas fa-font",
+"passwd":"fas fa-key",
+"qr":"fas fa-qrcode"
+};
+
+// Render tools
+function renderTools(tools){
+const container = document.getElementById('toolsContainer');
+container.innerHTML="";
+tools.forEach(tool=>{
+const statusClass = tool.status==="working"?"status-working":"status-upcoming";
+const statusText = tool.status==="working"?"Working":"Coming Soon";
+const toolCard=document.createElement('div');
+toolCard.className='tool-card';
+toolCard.innerHTML=`
+<div class="card-header">
+<div class="tool-category">${tool.category}</div>
+<h3 class="tool-name">${tool.name}</h3>
+</div>
+<div class="card-body">
+<div class="tool-icon"><i class="${toolIcons[tool.id]}"></i></div>
+<p class="tool-description">${tool.description}</p>
+<div class="tool-status ${statusClass}"><i class="fas fa-circle"></i><span>${statusText}</span></div>
+<div class="tool-link" onclick="openTool('${tool.id}')">Use Tool</div>
+</div>
+`;
+container.appendChild(toolCard);
+});
+}
+renderTools(toolsData);
+
+// Modal
+const modal = document.getElementById('toolModal');
+const modalBody = document.getElementById('modalBody');
+const closeModal = document.getElementById('closeModal');
+closeModal.onclick = ()=>{ modal.style.display='none'; modalBody.innerHTML=''; };
+window.onclick = e =>{ if(e.target===modal){ modal.style.display='none'; modalBody.innerHTML=''; } };
+
+// Tool functions
+function openTool(id){
+modal.style.display='flex';
+switch(id){
+case"bmi":
+modalBody.innerHTML=`
+<h2>BMI Calculator</h2>
+<input type="number" id="height" placeholder="Height (cm)">
+<input type="number" id="weight" placeholder="Weight (kg)">
+<button onclick="calculateBMI()">Calculate BMI</button>
+<div class="modal-result" id="bmiResult"></div>
+`; break;
+case"age":
+modalBody.innerHTML=`
+<h2>Age Calculator</h2>
+<input type="date" id="dob">
+<button onclick="calculateAge()">Calculate Age</button>
+<div class="modal-result" id="ageResult"></div>
+`; break;
+case"temp":
+modalBody.innerHTML=`
+<h2>Temperature Converter</h2>
+<input type="number" id="tempInput" placeholder="Temperature">
+<select id="tempUnit"><option value="C">Celsius</option><option value="F">Fahrenheit</option><option value="K">Kelvin</option></select>
+<button onclick="convertTemp()">Convert</button>
+<div class="modal-result" id="tempResult"></div>
+`; break;
+case"length":
+modalBody.innerHTML=`
+<h2>Length Converter</h2>
+<input type="number" id="lengthInput" placeholder="Value">
+<select id="lengthUnit"><option value="m">Meters</option><option value="ft">Feet</option><option value="in">Inches</option></select>
+<button onclick="convertLength()">Convert</button>
+<div class="modal-result" id="lengthResult"></div>
+`; break;
+case"weight":
+modalBody.innerHTML=`
+<h2>Weight Converter</h2>
+<input type="number" id="weightInput" placeholder="Value">
+<select id="weightUnit"><option value="kg">Kg</option><option value="lb">Pounds</option><option value="g">Grams</option></select>
+<button onclick="convertWeight()">Convert</button>
+<div class="modal-result" id="weightResult"></div>
+`; break;
+case"loan":
+modalBody.innerHTML=`
+<h2>Loan Calculator</h2>
+<input type="number" id="principal" placeholder="Principal">
+<input type="number" id="rate" placeholder="Annual Interest %">
+<input type="number" id="months" placeholder="Months">
+<button onclick="calculateLoan()">Calculate EMI</button>
+<div class="modal-result" id="loanResult"></div>
+`; break;
+case"tip":
+modalBody.innerHTML=`
+<h2>Tip & Bill Split</h2>
+<input type="number" id="billAmount" placeholder="Bill Amount">
+<input type="number" id="tipPercent" placeholder="Tip %">
+<input type="number" id="people" placeholder="Number of People">
+<button onclick="calculateTip()">Calculate</button>
+<div class="modal-result" id="tipResult"></div>
+`; break;
+case"word":
+modalBody.innerHTML=`
+<h2>Word & Character Counter</h2>
+<textarea id="textInput" placeholder="Enter text"></textarea>
+<button onclick="countText()">Count</button>
+<div class="modal-result" id="textResult"></div>
+`; break;
+case"passwd":
+modalBody.innerHTML=`
+<h2>Password Generator</h2>
+<input type="number" id="passLength" placeholder="Length" value="12">
+<button onclick="generatePassword()">Generate</button>
+<div class="modal-result" id="passResult"></div>
+`; break;
+case"qr":
+modalBody.innerHTML=`
+<h2>QR Code Generator</h2>
+<input type="text" id="qrText" placeholder="Enter text or URL">
+<div id="qrcode"></div>
+<button onclick="generateQR()">Generate QR</button>
+`; break;
+}
+}
+
+// Tool calculations
+function calculateBMI(){
+const h = parseFloat(document.getElementById('height').value)/100;
+const w = parseFloat(document.getElementById('weight').value);
+if(h>0 && w>0){ const bmi = (w/(h*h)).toFixed(2); document.getElementById('bmiResult').innerText="BMI: "+bmi; } 
+else {document.getElementById('bmiResult').innerText="Enter valid values";}
+}
+function calculateAge(){
+const dob = new Date(document.getElementById('dob').value);
+const now = new Date();
+if(dob>now){document.getElementById('ageResult').innerText="Invalid date";return;}
+const years = now.getFullYear()-dob.getFullYear();
+const months = now.getMonth()-dob.getMonth();
+const days = now.getDate()-dob.getDate();
+document.getElementById('ageResult').innerText=`Age: ${years} years, ${months} months, ${days} days`;
+}
+function convertTemp(){
+const val=parseFloat(document.getElementById('tempInput').value);
+const unit=document.getElementById('tempUnit').value;
+let c,f,k;
+if(isNaN(val)){document.getElementById('tempResult').innerText="Enter valid value";return;}
+if(unit==='C'){c=val; f=(c*9/5+32).toFixed(2); k=(c+273.15).toFixed(2);}
+if(unit==='F'){f=val; c=((f-32)*5/9).toFixed(2); k=(parseFloat(c)+273.15).toFixed(2);}
+if(unit==='K'){k=val; c=(k-273.15).toFixed(2); f=((parseFloat(c)*9/5)+32).toFixed(2);}
+document.getElementById('tempResult').innerText=`C: ${c}  |  F: ${f}  |  K: ${k}`;
+}
+function convertLength(){
+const val=parseFloat(document.getElementById('lengthInput').value);
+const unit=document.getElementById('lengthUnit').value;
+let m,ft,inches;
+if(isNaN(val)){document.getElementById('lengthResult').innerText="Enter valid value";return;}
+if(unit==='m'){m=val; ft=(m*3.28084).toFixed(2); inches=(m*39.3701).toFixed(2);}
+if(unit==='ft'){ft=val; m=(ft/3.28084).toFixed(2); inches=(ft*12).toFixed(2);}
+if(unit==='in'){inches=val; m=(inches/39.3701).toFixed(2); ft=(inches/12).toFixed(2);}
+document.getElementById('lengthResult').innerText=`Meters: ${m}  |  Feet: ${ft}  |  Inches: ${inches}`;
+}
+function convertWeight(){
+const val=parseFloat(document.getElementById('weightInput').value);
+const unit=document.getElementById('weightUnit').value;
+let kg,lb,g;
+if(isNaN(val)){document.getElementById('weightResult').innerText="Enter valid value";return;}
+if(unit==='kg'){kg=val; lb=(kg*2.20462).toFixed(2); g=(kg*1000).toFixed(2);}
+if(unit==='lb'){lb=val; kg=(lb/2.20462).toFixed(2); g=(kg*1000).toFixed(2);}
+if(unit==='g'){g=val; kg=(g/1000).toFixed(2); lb=(kg*2.20462).toFixed(2);}
+document.getElementById('weightResult').innerText=`Kg: ${kg}  |  Pounds: ${lb}  |  Grams: ${g}`;
+}
+function calculateLoan(){
+const p=parseFloat(document.getElementById('principal').value);
+const r=parseFloat(document.getElementById('rate').value)/100/12;
+const n=parseInt(document.getElementById('months').value);
+if(p>0 && r>=0 && n>0){ const emi=(p*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1); document.getElementById('loanResult').innerText=`EMI: ₹${emi.toFixed(2)} | Total: ₹${(emi*n).toFixed(2)} | Interest: ₹${(emi*n-p).toFixed(2)}`; }
+else {document.getElementById('loanResult').innerText="Enter valid values";}
+}
+function calculateTip(){
+const bill=parseFloat(document.getElementById('billAmount').value);
+const tipPerc=parseFloat(document.getElementById('tipPercent').value);
+const people=parseInt(document.getElementById('people').value);
+if(bill>0 && tipPerc>=0 && people>0){ const tip=(bill*tipPerc/100); const total=bill+tip; const perPerson=total/people; document.getElementById('tipResult').innerText=`Tip: ₹${tip.toFixed(2)} | Total: ₹${total.toFixed(2)} | Per Person: ₹${perPerson.toFixed(2)}`; }
+else {document.getElementById('tipResult').innerText="Enter valid values";}
+}
+function countText(){
+const text=document.getElementById('textInput').value;
+const chars=text.length;
+const words=text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+document.getElementById('textResult').innerText=`Characters: ${chars} | Words: ${words}`;
+}
+function generatePassword(){
+const len=parseInt(document.getElementById('passLength').value);
+if(len<4){document.getElementById('passResult').innerText="Minimum length 4";return;}
+const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
+let pass='';
+for(let i=0;i<len;i++){ pass+=chars.charAt(Math.floor(Math.random()*chars.length)); }
+document.getElementById('passResult').innerText=`Password: ${pass}`;
+}
+function generateQR(){
+const text=document.getElementById('qrText').value;
+if(text===''){alert('Enter text or URL');return;}
+document.getElementById('qrcode').innerHTML='';
+new QRCode(document.getElementById('qrcode'), {text:text,width:200,height:200});
+}
+</script>
+</body>
+</html>
